@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>slack.it</title>
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.ico")">
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.transform.light.js")"></script>
+    <script type="text/javascript">
+        function rand_color()
+        {
+            return Math.floor( Math.random() * 255 );
+        }
+
+        function rand_rgb()
+        {
+            var r = rand_color();
+            var g = rand_color();
+            var b = rand_color();
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+
+        var quanto = 5;
+        var verso = 1;
+        var tempo = 1000;
+
+        function dondola()
+        {
+            verso *= -1;
+            $("#card").animate(
+                { "transform": "rotate(" + (quanto * verso) + "deg)" },
+                tempo,
+                dondola
+            );
+        }
+
+        $(document).ready(
+            function() {
+                $(document.body).css( "background-color", rand_rgb() );
+                $("#card").mouseenter( function() { verso = 0; } );
+                $("#card").mouseleave( function() { verso = 1; } );
+                dondola();
+            }
+        );
+    </script>
+    <link href='http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&v2' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        th {
+            font-size: 32pt;
+            font-weight: bold;
+            font-family: 'Love Ya Like A Sister', cursive;
+        }
+        table {
+            background-color: #cff;
+            color: black;
+            padding: 1em;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3em;
+        }
+    </style>
+</head>
+<body>
+<table id="card">
+    <tr>
+        <th colspan="3">
+            Francesco Gigli
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <a href="http://gplus.to/jaramir">
+                <img src="@routes.Assets.at("images/gplus.png")">
+            </a>
+        </td>
+        <td>
+            <a href="http://twitter.com/jaramir">
+                <img src="@routes.Assets.at("images/twitter.png")">
+            </a>
+        </td>
+        <td>
+            <a href="http://github.com/jaramir">
+                <img src="@routes.Assets.at("images/github.png")">
+            </a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
