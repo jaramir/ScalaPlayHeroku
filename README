@@ -1,4 +1,18 @@
-This is your new Play 2.0 application
-=====================================
+This is a version of my personal home page
+==========================================
 
-This file will be packaged with your application, when using `play dist`.
+It's a static HTML page
+
+Just one single page
+
+No dynamic contents
+
+No database
+
+Nothing
+
+All that stuff with Play framework for Scala
+
+And deployed on Heroku
+
+Unresonably pointless..
